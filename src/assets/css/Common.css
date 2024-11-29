@@ -1,0 +1,37 @@
+.des {
+    margin: auto 0;
+    padding: 0.4em 0;
+}
+
+.mobile-des {
+    display: none;
+}
+
+.temp-val {
+}
+
+.value {
+    background-color: white;
+    padding: 0.6em 0;
+}
+
+/*TABLET*/
+@media (max-width: 1080px) {
+    .mobile-des{
+        display: block;
+    }
+
+    .desktop-des {
+        display: none;
+    }
+
+    .temp-val {
+        display: flex;
+        gap: 0.8em;
+    }
+}
+
+/*PHONE*/
+@media (max-width: 768px) {
+
+}
