@@ -2,7 +2,7 @@ import axios, {AxiosError} from "axios";
 import {ForecastDay, Summary} from "../models/models.ts";
 import {useState} from "react";
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://weatherapp-backend-xtyz.onrender.com';
 
 const axiosWeather = axios.create({
     baseURL: BASE_URL
