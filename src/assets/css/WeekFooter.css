@@ -58,6 +58,11 @@ footer {
     }
 }
 
+.summary-error {
+    color: white;
+    margin-bottom: 5em;
+}
+
 /*TABLET*/
 @media (max-width: 1080px) {
     .footer-container {
