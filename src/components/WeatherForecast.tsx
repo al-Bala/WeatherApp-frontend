@@ -9,7 +9,7 @@ import {DynamicIcon} from "./DynamicIcon.tsx";
 
 export const WeatherForecast = () => {
     const {location} = useLocation();
-    const {getWeatherForecast, error} = useApi();
+    const {getWeatherForecast, error, loading} = useApi();
     const [weatherForWeek, setWeatherForWeek] = useState<ForecastDay[] >([]);
 
     useEffect(() => {
@@ -28,6 +28,7 @@ export const WeatherForecast = () => {
                 <Location/>
                 {error && <p>{error}</p>}
             </div>
+            {loading && <p className="loading">Loading...</p>}
             <div className="forecast-flex-table">
                 {weatherForWeek.length != 0 &&
                     <ul className="description-col">

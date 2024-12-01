@@ -10,6 +10,7 @@ const axiosWeather = axios.create({
 
 export const useApi = () => {
     const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState(true);
 
     const getWeatherForecast = async (latitude: number | null, longitude: number | null): Promise<ForecastDay[] | undefined> => {
         try {
@@ -27,6 +28,8 @@ export const useApi = () => {
                     setError("404: NOT FOUND");
                 }
             }
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -51,6 +54,7 @@ export const useApi = () => {
 
     return {
         error,
+        loading,
         getWeatherForecast,
         getWeekSummary
     }

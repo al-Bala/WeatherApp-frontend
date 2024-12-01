@@ -15,6 +15,11 @@
     padding: 0.6em 0;
 }
 
+.loading {
+    padding-top: 2em;
+    font-size: 1.5em;
+}
+
 /*TABLET*/
 @media (max-width: 1080px) {
     .mobile-des{
