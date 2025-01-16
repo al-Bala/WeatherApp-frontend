@@ -13,12 +13,14 @@ export const WeatherForecast = () => {
     const [weatherForWeek, setWeatherForWeek] = useState<ForecastDay[] >([]);
 
     useEffect(() => {
-        getWeatherForecast(location.latitude, location.longitude)
-            .then(forecast => {
-                if(forecast){
-                    setWeatherForWeek(forecast)
-                }
-            });
+        if(location.latitude != null && location.longitude != null) {
+            getWeatherForecast(location.latitude, location.longitude)
+                .then(forecast => {
+                    if(forecast){
+                        setWeatherForWeek(forecast)
+                    }
+                });
+        }
     }, [location.latitude, location.longitude]);
 
     return (

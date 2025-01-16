@@ -2,10 +2,8 @@ import axios, {AxiosError} from "axios";
 import {ForecastDay, Summary} from "../models/models.ts";
 import {useState} from "react";
 
-const BASE_URL = 'https://weatherapp-backend-xtyz.onrender.com';
-
 const axiosWeather = axios.create({
-    baseURL: BASE_URL
+    baseURL: import.meta.env.VITE_BASE_SERVER_URL
 });
 
 export const useApi = () => {
@@ -15,7 +13,9 @@ export const useApi = () => {
     const getWeatherForecast = async (latitude: number | null, longitude: number | null): Promise<ForecastDay[] | undefined> => {
         try {
             const response =
-                await axiosWeather.get(`/weather-forecast/${latitude}/${longitude}`);
+                await axiosWeather.get(`/weather-forecast`, {
+                    params: {latitude: latitude, longitude: longitude}
+                });
             setError(null);
             return response.data;
         }
@@ -36,7 +36,9 @@ export const useApi = () => {
     const getWeekSummary = async (latitude: number | null, longitude: number | null): Promise<Summary | undefined> => {
         try{
             const response =
-                await axiosWeather.get(`/week-summary/${latitude}/${longitude}`)
+                await axiosWeather.get(`/week-summary`, {
+                    params: {latitude: latitude, longitude: longitude}
+                });
             setError(null);
             return response.data;
         }

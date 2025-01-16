@@ -11,12 +11,14 @@ export const WeekFooter = () => {
     const [weekSummary, setWeekSummary] = useState<Summary>();
 
     useEffect(() => {
-        getWeekSummary(location.latitude, location.longitude)
-            .then(summary => {
-                if (summary) {
-                    setWeekSummary(summary)
-                }
-            });
+        if(location.latitude != null && location.longitude != null) {
+            getWeekSummary(location.latitude, location.longitude)
+                .then(summary => {
+                    if (summary) {
+                        setWeekSummary(summary)
+                    }
+                });
+        }
     }, [location.latitude, location.longitude]);
 
     return (
